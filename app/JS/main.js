@@ -2,20 +2,20 @@ import "../CSS/style.css";
 
 async function getData() {
   try {
-    const response = await fetch("https://valorant-api.com/v1/agents");
+    const response = await fetch("https://genshin.jmp.blue/characters");
     if (response.status != 200) {
       throw new Error(response);
     } else {
       const data = await response.json();
-      console.log(data.data);
-      data.data.forEach((agent) =>
+      console.log(data);
+      data.forEach((agent) =>
         document
           .querySelector("div")
-          .insertAdjacentHTML("beforeend", `<h1>${agent.displayName}</h1>`)
+          .insertAdjacentHTML("beforeend", `<h1>${agent}</h1>`)
       );
     }
   } catch (error) {
-    alert("hey i could not find that agent");
+    alert("hey I could not find that agent");
   }
 }
 
