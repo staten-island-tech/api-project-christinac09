@@ -1,8 +1,8 @@
-import "./style.css";
+import "../CSS/style.css";
 
 async function getData() {
   try {
-    const response = await fetch("https://pokeapi.co/api/v2");
+    const response = await fetch("https://valorant-api.com/v1/agents");
     if (response.status != 200) {
       throw new Error(response);
     } else {
@@ -11,7 +11,7 @@ async function getData() {
       data.data.forEach((agent) =>
         document
           .querySelector("div")
-          .insertAdjacentHTML("afterbegin", `<h1>${agent.name}</h1>`)
+          .insertAdjacentHTML("beforeend", `<h1>${agent.displayName}</h1>`)
       );
     }
   } catch (error) {
