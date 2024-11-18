@@ -8,9 +8,8 @@ html, body, *{
     box-sizing: border-box;
     font-size: 10px;
 }
-.container {
+/* .container {
     width: 95%;
-    background-color: gray;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -24,4 +23,4 @@ html, body, *{
 .card-img {
     width: 60%;
     object-fit: cover;
-}
+} */
