@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html, body, *{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+.container {
+    width: 95%;
+    background-color: gray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.card {
+    margin: 1rem auto;
+    height: 20rem;
+    width: 15%;
+    border: 2px solid black;
+}
+.card-img {
+    width: 60%;
+    object-fit: cover;
+}
