@@ -12,18 +12,31 @@ async function getData() {
     } else {
       const data = await response.json();
       console.log(data);
-      data.forEach((agent) =>
-        DOMSelectors.container.insertAdjacentHTML(
-          "beforeend",
-          `<div class="w-1/6 m-8 m-auto">
-              <h2>${agent}</h2>
-              <img src="https://genshin.jmp.blue/characters/${agent}/icon" alt="icon of ${agent}" class="card-img">
-            </div>`
-        )
-      );
+      data.forEach(async (character) => {
+        const individualResponse = await fetch(
+          `https://genshin.jmp.blue/characters/${character}`
+        );
+        const individualData = await individualResponse.json();
+        console.log(individualData);
+        const individualImg = await fetch(
+          `https://genshin.jmp.blue/characters/${character}/icon`
+        );
+        displayIndividualData(individualData, individualImg);
+      });
     }
   } catch (error) {
     alert("hey I could not find that agent");
   }
+}
+
+async function displayIndividualData(character, image) {
+  DOMSelectors.container.insertAdjacentHTML(
+    "beforeend",
+    `<div class="w-1/6 m-8 m-auto">
+      <h2>${character.name}</h2>
+      <h3>${character.title}</h3>
+      <img src="${image}" alt="icon of ${character.name}" class="card-img">
+    </div>`
+  );
 }
 getData();
