@@ -18,10 +18,8 @@ async function getData() {
         );
         const individualData = await individualResponse.json();
         console.log(individualData);
-        const individualImg = await fetch(
-          `https://genshin.jmp.blue/characters/${character}/icon`
-        );
-        displayIndividualData(individualData, individualImg);
+        const individualURL = `https://genshin.jmp.blue/characters/${character}/icon`;
+        displayIndividualData(individualData, individualURL);
       });
     }
   } catch (error) {
