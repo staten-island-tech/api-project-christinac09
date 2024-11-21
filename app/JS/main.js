@@ -30,9 +30,9 @@ async function getData() {
 async function displayIndividualData(character, image) {
   DOMSelectors.container.insertAdjacentHTML(
     "beforeend",
-    `<div class="w-1/6 m-8 m-auto">
-      <h2>${character.name}</h2>
-      <h3>${character.title}</h3>
+    `<div class="w-1/6 my-8 mx-8 border-2 border-white">
+      <h2 class="text-center">${character.name}</h2>
+      <h3 class="text-center">${character.title}</h3>
       <img src="${image}" alt="icon of ${character.name}" class="card-img">
     </div>`
   );
