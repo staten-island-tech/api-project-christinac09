@@ -1,23 +1,22 @@
 import "../CSS/style.css";
-import { displayIndividualData } from "./display.js";
+import { displayCards, DOMSelectors } from "./display.js";
 
 async function getData() {
+  let array = [];
   try {
     const response = await fetch("https://genshin.jmp.blue/characters");
     if (response.status != 200) {
       throw new Error(response);
     } else {
       const data = await response.json();
-      console.log(data);
       data.forEach(async (character) => {
         const individualResponse = await fetch(
           `https://genshin.jmp.blue/characters/${character}`
         );
         const individualData = await individualResponse.json();
-        console.log(individualData);
-        const individualURL = `https://genshin.jmp.blue/characters/${character}/icon`;
-        displayIndividualData(individualData, individualURL);
+        array.push(individualData);
       });
+      return array;
     }
   } catch (error) {
     alert("hey I could not find that character");
@@ -47,4 +46,4 @@ async function getData() {
   }
 } */
 
-getData();
+displayCards(await getData());
