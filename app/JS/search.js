@@ -1,10 +1,5 @@
 import { getCharacterData, displayIndividualData } from "./display.js"
-
-const DOMSelectors = {
-    container: document.getElementById("cards-container"),
-    form: document.querySelector("form"),
-    searchBar: document.querySelector("#searchBar")
-};
+import { DOMSelectors } from "./dom.js";
 
 async function getSearchInput() {
     DOMSelectors.form.addEventListener("submit", async function(event) {
