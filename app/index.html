@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="sunset">
+<html lang="en" data-theme="dim">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
   </head>
-  <body>
-    <div class="container mx-auto p-4">
-      <h1 class="text-3xl font-bold text-center mb-4">Characters</h1>
-      <button class="btn btn-primary">Click Me</button>
-      <button class="btn btn-secondary">Click Me</button>
-      <button class="btn btn-accent">Click Me</button>
-      <button class="btn btn-neutral">Click Me</button>
-    </div>  
-    <div class="">
-      <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-    </div>
-    <div class="flex flex-row flex-wrap m-auto p-8" id="cards-container">
+  <body class="bg-white">
+    <div class="navbar bg-base-100">
+      <div class="btn btn-ghost text-2xl font-bold flex-1">
+        <a href="">Genshin Impact Characters</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="https://github.com/staten-island-tech/api-project-christinac09" class="btn btn-ghost text-xl">Github</a>
+        <form>
+          <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" id="searchBar"/>
+          <button type="submit" class="btn btn-outline btn-primary">Search</button>
+        </form>
+      </div>
+    </div>    
+    <div class="grid grid-cols-4 p-4 gap-4" id="cards-container">
       <!-- <div class="card bg-base-100 w-96 shadow-xl" id="${character.id}">
         <figure>
           <img

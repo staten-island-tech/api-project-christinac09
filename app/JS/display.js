@@ -2,11 +2,29 @@ const DOMSelectors = {
   container: document.getElementById("cards-container"),
 };
 
-async function displayIndividualData(character, image) {
+async function getCharacterData(character) {
+  try {
+    const response = await fetch(`https://genshin.jmp.blue/characters/${character}`);
+    if (response.status != 200) {
+      throw new Error(response)
+    } else {
+      const characterData = await response.json();
+      return characterData
+    }
+  } catch (error) {
+    alert("could not find that character")
+  }
+}
+
+function displayIndividualData(character) {
   DOMSelectors.container.insertAdjacentHTML(
     "beforeend",
-    `<div class="card bg-base-100 w-1/5 shadow-xl m-auto gap-2" id="${character.id}">
-      <img src="${image}" alt="icon of ${character.name}" class="card-image"/>
+    `<div class="card bg-base-100 w-[20%] justify-around" id="${character.id}">
+      <figure>
+          <img
+            src="https://genshin.jmp.blue/characters/${character.id}/icon-big"
+            alt="icon of ${character.name}" class="card-image"/>
+      </figure>
       <div class="card-body">
         <h2 class="card-title">${character.name}</h2>
         <p>${character.title}</p>
@@ -18,4 +36,6 @@ async function displayIndividualData(character, image) {
   );
 }
 
-export { displayIndividualData };
+
+
+export { getCharacterData, displayIndividualData };
