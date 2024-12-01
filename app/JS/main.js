@@ -5,6 +5,7 @@ import { addMoreButtons } from "./more.js";
 
 async function main() {
   await getAllData();
+  console.log("cards done loading")
   await getSearchInput();
   await addMoreButtons();
 }
