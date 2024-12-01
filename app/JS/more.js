@@ -1,4 +1,4 @@
-import { DOMSelectors } from "./dom";
+/* import { DOMSelectors } from "./dom";
 import { getCharacterData } from "./display";
 
 async function addMoreButtons() {
@@ -41,4 +41,4 @@ function showMoreData(character) {
     )
 }
 
-export {addMoreButtons}
+export {addMoreButtons} */
