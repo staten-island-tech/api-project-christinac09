@@ -27,10 +27,14 @@ async function displaySearchedData(input) {
                 characters.push(character)
             }
           });
-          console.log(characters)
-          for (const character of characters) {
-            const individualData = await getCharacterData(character);
-            displayIndividualData(individualData);
+          if (characters.length === 0) {
+            alert("no characters were found with that name. try searching for a different name")
+            return
+          } else {
+            console.log(characters)
+            for (const character of characters) {
+                const individualData = await getCharacterData(character);
+                displayIndividualData(individualData);}
         }
         }
     } catch (error) {
