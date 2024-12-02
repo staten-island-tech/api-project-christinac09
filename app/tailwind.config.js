@@ -12,7 +12,7 @@ module.exports = {
       "business",
       "night",
       "dim",
-      "coffee",
+      "nord",
       "sunset",
     ],
   },
