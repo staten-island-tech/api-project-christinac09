@@ -9,6 +9,7 @@ async function getSearchInput() {
             alert("bro rly searched for nothing lmao")
         } else {
             DOMSelectors.container.replaceChildren();
+            DOMSelectors.moreContainer.replaceChildren();
             displaySearchedData(input);
         }
     })
