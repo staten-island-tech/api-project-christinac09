@@ -68,6 +68,47 @@ async function getAllData() {
   }
 }
 
+function insertDropdownData(type, character) {
+  console.log(type, character);
+  if (type === "skills") {
+    const table = document.querySelector("#skills-tablebody");
+    for (let i = 0; i < 3; i++) {
+      table.insertAdjacentHTML(
+        "beforeend",
+        `<tr>
+        <th>${character.skillTalents[i].name}</th>
+        <td>${character.skillTalents[i].unlock}</td>
+        <td>${character.skillTalents[i].description}</td>
+      </tr>`
+      );
+    }
+  } else if (type === "passives") {
+    const table = document.querySelector("#passives-tablebody");
+    for (let i = 0; i < 3; i++) {
+      table.insertAdjacentHTML(
+        "beforeend",
+        `<tr>
+      <th>${character.passiveTalents[i].name}</th>
+      <td>${character.passiveTalents[i].unlock}</td>
+      <td>${character.passiveTalents[i].description}</td>
+    </tr>`
+      );
+    }
+  } else if (type === "constellations") {
+    const table = document.querySelector("#constellations-tablebody");
+    for (let i = 0; i < 6; i++) {
+      table.insertAdjacentHTML(
+        "beforeend",
+        `<tr>
+        <th>${character.constellations[i].name}</th>
+        <td>${character.constellations[i].level}</td>
+        <td>${character.constellations[i].description}</td>
+      </tr>`
+      );
+    }
+  }
+}
+
 function showMoreData(character) {
   console.log(character);
   DOMSelectors.moreContainer.insertAdjacentHTML(
@@ -141,22 +182,8 @@ function showMoreData(character) {
                         <th>Description</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <th>${character.skillTalents[0].name}</th>
-                        <td>${character.skillTalents[0].unlock}</td>
-                        <td>${character.skillTalents[0].description}</td>
-                      </tr>
-                      <tr>
-                        <th>${character.skillTalents[1].name}</th>
-                        <td>${character.skillTalents[1].unlock}</td>
-                        <td>${character.skillTalents[1].description}</td>
-                      </tr>
-                      <tr>
-                        <th>${character.skillTalents[2].name}</th>
-                        <td>${character.skillTalents[2].unlock}</td>
-                        <td>${character.skillTalents[2].description}</td>
-                      </tr>
+                    <tbody id="skills-tablebody">
+                      
                     </tbody>
                   </table>
                 </div>
@@ -175,22 +202,7 @@ function showMoreData(character) {
                         <th>Description</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <th>${character.passiveTalents[0].name}</th>
-                        <td>${character.passiveTalents[0].unlock}</td>
-                        <td>${character.passiveTalents[0].description}</td>
-                      </tr>
-                      <tr>
-                        <th>${character.passiveTalents[1].name}</th>
-                        <td>${character.passiveTalents[1].unlock}</td>
-                        <td>${character.passiveTalents[1].description}</td>
-                      </tr>
-                      <tr>
-                        <th>${character.passiveTalents[2].name}</th>
-                        <td>${character.passiveTalents[2].unlock}</td>
-                        <td>${character.passiveTalents[2].description}</td>
-                      </tr>
+                    <tbody id="passives-tablebody">
                     </tbody>
                   </table>
                 </div>
@@ -209,37 +221,7 @@ function showMoreData(character) {
                         <th>Description</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <th>${character.constellations[0].name}</th>
-                        <td>${character.constellations[0].level}</td>
-                        <td>${character.constellations[0].description}</td>
-                      </tr>
-                      <tr>
-                        <th>${character.constellations[1].name}</th>
-                        <td>${character.constellations[1].level}</td>
-                        <td>${character.constellations[1].description}</td>
-                      </tr>
-                      <tr>
-                        <th>${character.constellations[2].name}</th>
-                        <td>${character.constellations[2].level}</td>
-                        <td>${character.constellations[2].description}</td>
-                      </tr>
-                      <tr>
-                        <th>${character.constellations[3].name}</th>
-                        <td>${character.constellations[3].level}</td>
-                        <td>${character.constellations[3].description}</td>
-                      </tr>
-                      <tr>
-                        <th>${character.constellations[4].name}</th>
-                        <td>${character.constellations[4].level}</td>
-                        <td>${character.constellations[4].description}</td>
-                      </tr>
-                      <tr>
-                        <th>${character.constellations[5].name}</th>
-                        <td>${character.constellations[5].level}</td>
-                        <td>${character.constellations[5].description}</td>
-                      </tr>
+                    <tbody id="constellations-tablebody">
                     </tbody>
                   </table>
                 </div>
@@ -252,6 +234,9 @@ function showMoreData(character) {
         </div>
       </div>`
   );
+  insertDropdownData("skills", character);
+  insertDropdownData("passives", character);
+  insertDropdownData("constellations", character);
 }
 
 export { getCharacterData, displayIndividualData, getAllData };
