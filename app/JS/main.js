@@ -1,6 +1,6 @@
 import "../CSS/style.css";
-import { getAllData } from "./display.js";
-import { getSearchInput } from "./search.js";
+import { getAllData, display, get } from "./display.js";
+import { getSearchInput, getSearchInput2 } from "./search.js";
 import { getFilteredInput } from "./filter.js";
 
 async function main() {
@@ -10,4 +10,11 @@ async function main() {
   getFilteredInput();
 }
 
-main();
+async function main2() {
+  display(await get());
+  getSearchInput2();
+  getFilteredInput();
+}
+
+/* main(); */
+main2();
