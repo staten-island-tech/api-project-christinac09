@@ -1,5 +1,5 @@
-import { displayIndividualData } from "./display";
-import { DOMSelectors } from "./dom";
+import { displayCards, getAllData } from "./display";
+import { DOMSelectors, clearContainers } from "./dom";
 
 async function getFilteredInput() {
     const form = document.querySelector("#filter-form")
@@ -12,20 +12,10 @@ async function getFilteredInput() {
     
 }
 async function getByElement(type) {
-    try {
-        const response = await fetch("https://genshin.jmp.blue/characters/all");
-        if (response.status != 200) {
-          throw new Error(response);
-        } else {
-          const data = await response.json();
-          DOMSelectors.container.replaceChildren()
-          DOMSelectors.moreContainer.replaceChildren()
-          const filtered = data.filter((character)=>character.vision.toLowerCase()===type)
-          console.log(filtered)
-          filtered.forEach((character)=>displayIndividualData(character))
-        }
-      } catch (error) {
-        alert("hey I could not find that character");
-      }
+  const data = await getAllData()  
+  clearContainers();
+  const filtered = data.filter((character)=>character.vision.toLowerCase()===type)
+  console.log(filtered)
+  displayCards(filtered)
 }
 export {getFilteredInput}

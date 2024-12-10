@@ -3,7 +3,15 @@ const DOMSelectors = {
     form: document.querySelector("#search-form"),
     searchBar: document.querySelector("#searchBar"),
     moreContainer: document.querySelector("#more-container"),
-    moreButtons: document.querySelectorAll("#more-btn")
+    moreButtons: document.querySelectorAll("#more-btn"),
+    gameContainer: document.querySelector("#game-container"),
+    gameStartBtn: document.querySelector("#game-start-btn")
 };
 
-export {DOMSelectors}
+function clearContainers() {
+    DOMSelectors.container.innerHTML = "";
+    DOMSelectors.moreContainer.innerHTML = "";
+    DOMSelectors.gameContainer.innerHTML = "";
+}
+
+export {DOMSelectors, clearContainers}

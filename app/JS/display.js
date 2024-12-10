@@ -1,6 +1,7 @@
-import { DOMSelectors } from "./dom";
+import { DOMSelectors, clearContainers } from "./dom";
 
 function displayCards(array) {
+  clearContainers()
   array.forEach((character) =>
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
@@ -39,8 +40,7 @@ function addMoreBtns() {
   const moreBtns = document.querySelectorAll("#more-btn");
   moreBtns.forEach((button) =>
     button.addEventListener("click", async function (event) {
-      DOMSelectors.container.replaceChildren();
-      DOMSelectors.moreContainer.replaceChildren();
+      clearContainers();
       const character = button.getAttribute("data-character-id");
       const data = await getCharacterData(character);
       showMoreData(data);
@@ -224,7 +224,7 @@ function showMoreData(character) {
                 </div>
               </div>
             </div>
-            <div class="collapse collapse-arrow bg-base-200 m-2" id="constellatioins-collapse">
+            <div class="collapse collapse-arrow bg-base-200 m-2" id="constellations-collapse">
               <input type="checkbox" />
               <div class="collapse-title text-xl font-medium">Constellations</div>
               <div class="collapse-content">

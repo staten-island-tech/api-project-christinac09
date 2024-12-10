@@ -1,5 +1,22 @@
-let a = [10, 20, 30, 40, 50];
-console.log(Math.random() * a.length);
-let i = Math.floor(Math.random() * a.length);
-let r = a[i];
-console.log(r);
+const myArray = [
+    {
+        a: "apple",
+        b: "banana",
+        c: "cherry",
+        d: "date"
+      },
+      {
+        a: "apple",
+        b: "banana",
+        c: "cherry",
+        d: "date"
+      },
+      {
+        a: "apple",
+        b: "banana",
+        c: "cherry",
+        d: "date"
+      }
+]
+
+console.log(myArray.a)

@@ -12,7 +12,7 @@
         <h1><a href="">Genshin Impact Characters</a></h1>
       </div>
       <div class="flex items-center gap-2">
-        <button class="btn btn-ghost text-xl">Game</button>
+        <button class="btn btn-ghost text-xl" id="game-start-btn">GAME!!</button>
         <a href="https://github.com/staten-island-tech/api-project-christinac09" class="btn btn-ghost text-xl">Github</a>
         <form id="filter-form">
           <select class="select btn btn-ghost max-w-xs text-xl" id="element-filter">
@@ -28,7 +28,7 @@
         </form>
         <form id="search-form">
           <input type="text" placeholder="Search by name" class="input input-bordered w-24 md:w-auto" id="searchBar"/>
-          <button type="submit" class="btn btn-outline btn-primary">Search</button>
+          <button type="submit" class="btn btn-rounded-xl btn-primary">Search</button>
         </form>
       </div>
     </div>    
@@ -46,14 +46,25 @@
           <h2 class="card-title">${character.name}</h2>
           <p>${character.title}</p>
           <div class="card-actions justify-end">
-            <button class="btn btn-primary btn-outline">See More</button>
+            <button class="btn btn-primary btn-rounded-xl">See More</button>
           </div>
         </div>
       </div> -->
     </div>
-    <div class="grid grid-cols-2 p-4" id="game-container">
-
-    </div>
+    
+    <div class="max-w-xl mx-auto p-6 rounded-lg shadow-lg" id="game-container">
+      <!-- <h2 class="text-2xl font-bold text-center" id="question-text">[Question]?</h2>
+      <h3 class="text-xl text-center mb-4" id="score">Score: 0</h3> -->
+      <form class="bg-base-100 " id="question-form">
+          <!-- <div class="form-control m-3">     four of these
+              <label class="label cursor-pointer" id="answer-choice">
+                  <span class="label-text">A) answer</span>
+                  <input type="radio" name="answer" class="radio radio-secondary" />   name attribute groups radio buttons together so only one can be selected
+              </label>
+          </div>
+          <button type="submit" class="btn btn-secondary w-full py-2 rounded-md mt-4">Submit</button> -->
+      </form>
+  </div>
     
     <script type="module" src="JS/main.js"></script>
   </body>
